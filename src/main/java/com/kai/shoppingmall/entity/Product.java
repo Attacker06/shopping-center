@@ -1,6 +1,7 @@
 package com.kai.shoppingmall.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -18,6 +19,14 @@ public class Product {
 
     @Column
     private Integer stock;
+
+    @JoinColumn
+    @OneToMany
+    private List<OrderList> orderLists;
+
+    @JoinColumn
+    @OneToMany
+    private List<ShoppingList> shoppingLists;
 
     public Integer getProductId() {
         return productId;
@@ -49,5 +58,21 @@ public class Product {
 
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public List<OrderList> getOrderLists() {
+        return orderLists;
+    }
+
+    public void setOrderLists(List<OrderList> orderLists) {
+        this.orderLists = orderLists;
+    }
+
+    public List<ShoppingList> getShoppingLists() {
+        return shoppingLists;
+    }
+
+    public void setShoppingLists(List<ShoppingList> shoppingLists) {
+        this.shoppingLists = shoppingLists;
     }
 }

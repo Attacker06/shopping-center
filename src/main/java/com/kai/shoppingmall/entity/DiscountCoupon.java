@@ -2,6 +2,7 @@ package com.kai.shoppingmall.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Table
 @Entity
@@ -16,6 +17,10 @@ public class DiscountCoupon {
 
     @Column
     private Double discountPercentOff;
+
+    @OneToMany
+    @JoinColumn
+    private List<DiscountCouponHolder> discountCouponHolderList;
 
     public Integer getDiscountCouponId() {
         return discountCouponId;
@@ -39,5 +44,13 @@ public class DiscountCoupon {
 
     public void setDiscountPercentOff(Double discountPercentOff) {
         this.discountPercentOff = discountPercentOff;
+    }
+
+    public List<DiscountCouponHolder> getDiscountCouponHolderList() {
+        return discountCouponHolderList;
+    }
+
+    public void setDiscountCouponHolderList(List<DiscountCouponHolder> discountCouponHolderList) {
+        this.discountCouponHolderList = discountCouponHolderList;
     }
 }

@@ -1,6 +1,7 @@
 package com.kai.shoppingmall.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -15,6 +16,10 @@ public class Employee {
 
     @Column
     private String employeeGender;
+
+    @JoinColumn
+    @OneToMany
+    private List<ProblemReport> problemReportList;
 
     public Integer getEmployeeId() {
         return employeeId;
@@ -38,5 +43,13 @@ public class Employee {
 
     public void setEmployeeGender(String employeeGender) {
         this.employeeGender = employeeGender;
+    }
+
+    public List<ProblemReport> getProblemReportList() {
+        return problemReportList;
+    }
+
+    public void setProblemReportList(List<ProblemReport> problemReportList) {
+        this.problemReportList = problemReportList;
     }
 }

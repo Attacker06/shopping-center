@@ -2,6 +2,7 @@ package com.kai.shoppingmall.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Table
 @Entity
@@ -28,6 +29,22 @@ public class Member {
 
     @Column
     private String memberMail;
+
+    @OneToMany
+    @JoinColumn
+    private List<DiscountCouponHolder> discountCouponHolderList;
+
+    @OneToMany
+    @JoinColumn
+    private List<Orders> ordersList;
+
+    @OneToMany
+    @JoinColumn
+    private List<ProblemReport> problemReportList;
+
+    @OneToMany
+    @JoinColumn
+    private List<ShoppingList> shoppingLists;
 
     public Integer getMemberId() {
         return memberId;
@@ -83,5 +100,37 @@ public class Member {
 
     public void setMemberMail(String memberMail) {
         this.memberMail = memberMail;
+    }
+
+    public List<DiscountCouponHolder> getDiscountCouponHolderList() {
+        return discountCouponHolderList;
+    }
+
+    public void setDiscountCouponHolderList(List<DiscountCouponHolder> discountCouponHolderList) {
+        this.discountCouponHolderList = discountCouponHolderList;
+    }
+
+    public List<Orders> getOrdersList() {
+        return ordersList;
+    }
+
+    public void setOrdersList(List<Orders> ordersList) {
+        this.ordersList = ordersList;
+    }
+
+    public List<ProblemReport> getProblemReportList() {
+        return problemReportList;
+    }
+
+    public void setProblemReportList(List<ProblemReport> problemReportList) {
+        this.problemReportList = problemReportList;
+    }
+
+    public List<ShoppingList> getShoppingLists() {
+        return shoppingLists;
+    }
+
+    public void setShoppingLists(List<ShoppingList> shoppingLists) {
+        this.shoppingLists = shoppingLists;
     }
 }
