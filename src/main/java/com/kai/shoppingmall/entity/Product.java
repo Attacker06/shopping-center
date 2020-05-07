@@ -20,13 +20,13 @@ public class Product {
     @Column
     private Integer stock;
 
-    @JoinColumn
-    @OneToMany
-    private List<OrderList> orderLists;
-
-    @JoinColumn
-    @OneToMany
-    private List<ShoppingList> shoppingLists;
+//    @JoinColumn
+//    @OneToMany
+//    private List<OrderList> orderLists;
+//
+//    @JoinColumn
+//    @OneToMany
+//    private List<ShoppingList> shoppingLists;
 
     public Integer getProductId() {
         return productId;
@@ -60,19 +60,19 @@ public class Product {
         this.stock = stock;
     }
 
-    public List<OrderList> getOrderLists() {
-        return orderLists;
-    }
-
-    public void setOrderLists(List<OrderList> orderLists) {
-        this.orderLists = orderLists;
-    }
-
-    public List<ShoppingList> getShoppingLists() {
-        return shoppingLists;
-    }
-
-    public void setShoppingLists(List<ShoppingList> shoppingLists) {
-        this.shoppingLists = shoppingLists;
-    }
+//    public List<OrderList> getOrderLists() {
+//        return orderLists;
+//    }
+//
+//    public void setOrderLists(List<OrderList> orderLists) {
+//        this.orderLists = orderLists;
+//    }
+//
+//    public List<ShoppingList> getShoppingLists() {
+//        return shoppingLists;
+//    }
+//
+//    public void setShoppingLists(List<ShoppingList> shoppingLists) {
+//        this.shoppingLists = shoppingLists;
+//    }
 }

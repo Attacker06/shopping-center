@@ -18,9 +18,9 @@ public class DiscountCoupon {
     @Column
     private Double discountPercentOff;
 
-    @OneToMany
-    @JoinColumn
-    private List<DiscountCouponHolder> discountCouponHolderList;
+//    @OneToMany
+//    @JoinColumn
+//    private List<DiscountCouponHolder> discountCouponHolderList;
 
     public Integer getDiscountCouponId() {
         return discountCouponId;
@@ -46,11 +46,11 @@ public class DiscountCoupon {
         this.discountPercentOff = discountPercentOff;
     }
 
-    public List<DiscountCouponHolder> getDiscountCouponHolderList() {
-        return discountCouponHolderList;
-    }
-
-    public void setDiscountCouponHolderList(List<DiscountCouponHolder> discountCouponHolderList) {
-        this.discountCouponHolderList = discountCouponHolderList;
-    }
+//    public List<DiscountCouponHolder> getDiscountCouponHolderList() {
+//        return discountCouponHolderList;
+//    }
+//
+//    public void setDiscountCouponHolderList(List<DiscountCouponHolder> discountCouponHolderList) {
+//        this.discountCouponHolderList = discountCouponHolderList;
+//    }
 }

@@ -22,9 +22,9 @@ public class Orders {
     @ManyToOne
     private Member member;
 
-    @JoinColumn
-    @OneToMany
-    private List<OrderList> orderLists;
+//    @JoinColumn
+//    @OneToMany
+//    private List<OrderList> orderLists;
 
     public Integer getOrderId() {
         return orderId;
@@ -58,11 +58,11 @@ public class Orders {
         this.member = member;
     }
 
-    public List<OrderList> getOrderLists() {
-        return orderLists;
-    }
-
-    public void setOrderLists(List<OrderList> orderLists) {
-        this.orderLists = orderLists;
-    }
+//    public List<OrderList> getOrderLists() {
+//        return orderLists;
+//    }
+//
+//    public void setOrderLists(List<OrderList> orderLists) {
+//        this.orderLists = orderLists;
+//    }
 }

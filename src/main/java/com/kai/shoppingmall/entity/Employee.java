@@ -17,9 +17,9 @@ public class Employee {
     @Column
     private String employeeGender;
 
-    @JoinColumn
-    @OneToMany
-    private List<ProblemReport> problemReportList;
+//    @JoinColumn
+//    @OneToMany
+//    private List<ProblemReport> problemReportList;
 
     public Integer getEmployeeId() {
         return employeeId;
@@ -45,11 +45,11 @@ public class Employee {
         this.employeeGender = employeeGender;
     }
 
-    public List<ProblemReport> getProblemReportList() {
-        return problemReportList;
-    }
+//    public List<ProblemReport> getProblemReportList() {
+//        return problemReportList;
+//    }
 
-    public void setProblemReportList(List<ProblemReport> problemReportList) {
-        this.problemReportList = problemReportList;
-    }
+//    public void setProblemReportList(List<ProblemReport> problemReportList) {
+//        this.problemReportList = problemReportList;
+//    }
 }
