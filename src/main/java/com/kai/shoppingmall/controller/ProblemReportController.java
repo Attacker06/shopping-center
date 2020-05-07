@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProblemReportController {
 
     @GetMapping("findAll")
-    public BaseResponse findAll(){
+     public BaseResponse findAll(){
         return new BaseResponse();
     }
+
 }
