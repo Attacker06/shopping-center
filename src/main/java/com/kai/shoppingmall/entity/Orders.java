@@ -3,6 +3,7 @@ package com.kai.shoppingmall.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Table
@@ -22,6 +23,10 @@ public class Orders {
     @ManyToOne
     @JoinColumn
     private Member member;
+
+    @JoinColumn
+    @OneToMany
+    private List<OrderList> orderLists;
 
 
     public Integer getOrderId() {
@@ -56,5 +61,10 @@ public class Orders {
         this.member = member;
     }
 
-
+    public List<OrderList> getOrderLists() {
+        return orderLists;
+    }
+    public void setOrderLists(List<OrderList> orderLists) {
+        this.orderLists = orderLists;
+    }
 }
