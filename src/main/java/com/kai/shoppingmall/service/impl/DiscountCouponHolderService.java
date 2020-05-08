@@ -1,4 +1,8 @@
 package com.kai.shoppingmall.service.impl;
 
-public class DiscountCouponHolderService {
+import com.kai.shoppingmall.service.IDiscountCouponHolderService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class DiscountCouponHolderService implements IDiscountCouponHolderService {
 }
