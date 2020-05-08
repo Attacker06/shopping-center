@@ -49,4 +49,3 @@ public class ShoppingList {
         this.member = member;
     }
 }
-}
