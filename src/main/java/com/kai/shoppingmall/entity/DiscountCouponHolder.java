@@ -21,7 +21,6 @@ public class DiscountCouponHolder {
     public Integer getDiscountCouponHolderId() {
         return discountCouponHolderId;
     }
-
     public void setDiscountCouponHolderId(Integer discountCouponHolderId) {
         this.discountCouponHolderId = discountCouponHolderId;
     }
@@ -29,7 +28,6 @@ public class DiscountCouponHolder {
     public DiscountCoupon getDiscountCoupon() {
         return discountCoupon;
     }
-
     public void setDiscountCoupon(DiscountCoupon discountCoupon) {
         this.discountCoupon = discountCoupon;
     }
@@ -37,7 +35,6 @@ public class DiscountCouponHolder {
     public Member getMember() {
         return member;
     }
-
     public void setMember(Member member) {
         this.member = member;
     }
