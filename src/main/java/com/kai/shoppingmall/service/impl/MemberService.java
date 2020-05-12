@@ -18,10 +18,15 @@ public class MemberService implements IMemberService {
     @Override
     public BaseResponse findAll() {
         BaseResponse baseResponse = new BaseResponse();
-        List<Member> memberList = memberRepository.findAll();
-        baseResponse.setStatus(true);
-        baseResponse.setMessage("查詢成功");
-        baseResponse.setData(memberList);
+        try {
+            List<Member> memberList = memberRepository.findAll();
+            baseResponse.setStatus(true);
+            baseResponse.setMessage("查詢成功");
+            baseResponse.setData(memberList);
+        }catch (Exception e){
+            baseResponse.setStatus(false);
+            baseResponse.setMessage("查詢失敗");
+        }
         return baseResponse;
     }
 
