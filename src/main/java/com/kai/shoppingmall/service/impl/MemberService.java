@@ -24,4 +24,61 @@ public class MemberService implements IMemberService {
         baseResponse.setData(memberList);
         return baseResponse;
     }
+
+    @Override
+    public BaseResponse select(Integer id) {
+        BaseResponse baseResponse = new BaseResponse();
+        try {
+            Member member = memberRepository.getOne(id);
+            baseResponse.setStatus(true);
+            baseResponse.setMessage("查詢成功");
+            baseResponse.setData(member);
+        }catch (Exception e){
+            baseResponse.setStatus(false);
+            baseResponse.setMessage("查詢失敗");
+        }
+        return baseResponse;
+    }
+
+    @Override
+    public BaseResponse insert(Member member) {
+        BaseResponse baseResponse = new BaseResponse();
+        try {
+            memberRepository.save(member);
+            baseResponse.setStatus(true);
+            baseResponse.setMessage("新增成功");
+        }catch (Exception e){
+            baseResponse.setStatus(false);
+            baseResponse.setMessage("新增失敗");
+        }
+        return baseResponse;
+    }
+
+    @Override
+    public BaseResponse update(Member member) {
+        BaseResponse baseResponse = new BaseResponse();
+        try {
+            memberRepository.save(member);
+            baseResponse.setStatus(true);
+            baseResponse.setMessage("修改成功");
+        }catch (Exception e){
+            baseResponse.setStatus(false);
+            baseResponse.setMessage("修改失敗");
+        }
+        return baseResponse;
+    }
+
+    @Override
+    public BaseResponse delete(Integer id) {
+        BaseResponse baseResponse = new BaseResponse();
+        try {
+            memberRepository.deleteById(id);
+            baseResponse.setStatus(true);
+            baseResponse.setMessage("刪除成功");
+        }catch (Exception e){
+            baseResponse.setStatus(false);
+            baseResponse.setMessage("刪除失敗");
+        }
+        return baseResponse;
+    }
 }
