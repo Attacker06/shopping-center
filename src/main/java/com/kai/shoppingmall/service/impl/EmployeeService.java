@@ -86,4 +86,24 @@ public class EmployeeService implements IEmployeeService {
         }
         return baseResponse;
     }
+
+    @Override
+    public BaseResponse register(Employee employee) {
+        BaseResponse baseResponse = new BaseResponse();
+        try {
+            String account = employee.getAccount();
+            Employee existedEmployee = employeeRepository.getEmployeeByAccount(account);
+            if (existedEmployee != null) {
+                baseResponse.setMessage("帳號已存在");
+                baseResponse.setStatus(false);
+            }
+            employeeRepository.save(employee);
+            baseResponse.setMessage("註冊成功");
+            baseResponse.setStatus(true);
+        }catch (Exception e) {
+            baseResponse.setMessage("註冊失敗");
+            baseResponse.setStatus(false);
+        }
+        return baseResponse;
+    }
 }

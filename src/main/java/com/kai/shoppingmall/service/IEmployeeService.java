@@ -13,4 +13,6 @@ public interface IEmployeeService {
     BaseResponse update(Employee employee);
 
     BaseResponse delete(Integer id);
+
+    BaseResponse register(Employee employee);
 }

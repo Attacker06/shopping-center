@@ -38,5 +38,10 @@ public class EmployeeController {
     public BaseResponse delete(@RequestParam Integer id){
         return employeeService.delete(id);
     }
+
+    @PostMapping("/register")
+    public BaseResponse register(@RequestBody Employee employee){
+        return employeeService.register(employee);
+    }
 }
 

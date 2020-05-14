@@ -38,4 +38,9 @@ public class ProductController {
     public BaseResponse delete(@RequestParam Integer id){
         return productService.delete(id);
     }
+
+    @PutMapping("/launch")
+    public BaseResponse launch(@RequestBody Product product){
+        return productService.launch(product);
+    }
 }

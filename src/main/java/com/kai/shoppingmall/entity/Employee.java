@@ -17,6 +17,12 @@ public class Employee {
     @Column
     private String employeeGender;
 
+    @Column
+    private String account;
+
+    @Column
+    private String password;
+
     @JoinColumn
     @OneToMany
     private List<ProblemReport> problemReportList;
@@ -47,5 +53,21 @@ public class Employee {
     }
     public void setProblemReportList(List<ProblemReport> problemReportList) {
         this.problemReportList = problemReportList;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

@@ -17,6 +17,7 @@ public class DiscountCouponController {
     public BaseResponse findAll(){
         return discountCouponService.findAll();
     }
+
     @PostMapping("/insert")
     public BaseResponse insert(@RequestBody DiscountCoupon discountCoupon){
         return discountCouponService.insert(discountCoupon);

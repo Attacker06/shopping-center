@@ -86,4 +86,24 @@ public class ProductService implements IProductService {
         }
         return baseResponse;
     }
+
+    @Override
+    public BaseResponse launch(Product product) {
+        BaseResponse baseResponse = new BaseResponse();
+        try{
+            Integer productId = product.getProductId();
+            if (productId == null){
+                productRepository.save(product);
+            }else {
+                Integer statusCode = product.getStatus();
+                productRepository.changedStatus(statusCode);
+            }
+            baseResponse.setStatus(true);
+            baseResponse.setMessage("上架成功");
+        }catch (Exception e){
+            baseResponse.setStatus(false);
+            baseResponse.setMessage("上架失敗");
+        }
+        return null;
+    }
 }

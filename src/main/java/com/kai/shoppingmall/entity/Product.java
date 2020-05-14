@@ -21,6 +21,9 @@ public class Product {
     @Column
     private Integer stock;
 
+    @Column
+    private Integer status;
+
     public Integer getProductId(){
         return productId;
     }
@@ -47,5 +50,13 @@ public class Product {
     }
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 }
