@@ -5,6 +5,7 @@ import com.kai.shoppingmall.response.BaseResponse;
 import com.kai.shoppingmall.service.impl.DiscountCouponService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.util.Date;
 
 @RestController
 @RequestMapping("/discountCoupon")
@@ -36,5 +37,15 @@ public class DiscountCouponController {
     @DeleteMapping("/delete")
     public BaseResponse delete(@RequestParam Integer id){
         return discountCouponService.delete(id);
+    }
+
+    @PostMapping("/addCoupon")
+    public BaseResponse addCoupon(@RequestBody DiscountCoupon discountCoupon){
+        return discountCouponService.addCoupon(discountCoupon);
+    }
+
+    @GetMapping("/addCouponWithAmount")
+    public BaseResponse addCouponWithAmount(@RequestParam Date expireDate,@RequestParam Double amount,@RequestParam Double percentOff){
+        return discountCouponService.addCouponWithAmount(expireDate, amount, percentOff);
     }
 }
