@@ -10,4 +10,8 @@ public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
 
     @Query(value = "SELECT * FROM Employee where account = ?1",nativeQuery = true)
     Employee getEmployeeByAccount(String account);
+
+    //@Query(value = "select e from Employee e where e.account = ?1")
+
+    //@Query(value = "delete Employee e where e.employeeId=?1")
 }

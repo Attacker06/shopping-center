@@ -15,4 +15,8 @@ public interface IProductService {
     BaseResponse delete(Integer id);
 
     BaseResponse launch(Product product);
+
+    BaseResponse changePrice(Product product);
+
+    BaseResponse changeStock(Product product);
 }

@@ -43,4 +43,14 @@ public class ProductController {
     public BaseResponse launch(@RequestBody Product product){
         return productService.launch(product);
     }
+
+    @PutMapping("/changePrice")
+    public BaseResponse changePrice(@RequestBody Product product){
+        return  productService.changePrice(product);
+    }
+
+    @PutMapping("/changeStock")
+    public BaseResponse changeStock(@RequestBody Product product){
+        return productService.changeStock(product);
+    }
 }

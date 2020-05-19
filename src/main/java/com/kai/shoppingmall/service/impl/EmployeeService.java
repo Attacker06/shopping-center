@@ -65,10 +65,10 @@ public class EmployeeService implements IEmployeeService {
         try {
             employeeRepository.save(employee);
             baseResponse.setStatus(true);
-            baseResponse.setMessage("修改成功");
+            baseResponse.setMessage("員工資料變更成功");
         }catch (Exception e){
             baseResponse.setStatus(false);
-            baseResponse.setMessage("修改失敗");
+            baseResponse.setMessage("員工資料變更失敗");
         }
         return baseResponse;
     }
@@ -96,10 +96,11 @@ public class EmployeeService implements IEmployeeService {
             if (existedEmployee != null) {
                 baseResponse.setMessage("帳號已存在");
                 baseResponse.setStatus(false);
+            }else {
+                employeeRepository.save(employee);
+                baseResponse.setMessage("註冊成功");
+                baseResponse.setStatus(true);
             }
-            employeeRepository.save(employee);
-            baseResponse.setMessage("註冊成功");
-            baseResponse.setStatus(true);
         }catch (Exception e) {
             baseResponse.setMessage("註冊失敗");
             baseResponse.setStatus(false);

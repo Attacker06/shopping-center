@@ -90,20 +90,65 @@ public class ProductService implements IProductService {
     @Override
     public BaseResponse launch(Product product) {
         BaseResponse baseResponse = new BaseResponse();
+        Integer productId = product.getProductId();
+        Integer statusCode = product.getStatus();
         try{
-            Integer productId = product.getProductId();
-            if (productId == null){
+            if (productId == null || statusCode == 1){
                 productRepository.save(product);
-            }else {
-                Integer statusCode = product.getStatus();
                 productRepository.changedStatus(statusCode);
+                baseResponse.setMessage("上架成功");
+            }else{
+                productRepository.changedStatus(statusCode);
+                baseResponse.setMessage("下架成功");
             }
             baseResponse.setStatus(true);
-            baseResponse.setMessage("上架成功");
+        }catch (Exception e){
+            if(productId == null || statusCode == 1) {
+                baseResponse.setMessage("上架失敗");
+            }else{
+                baseResponse.setMessage("下架失敗");
+            }
+            baseResponse.setStatus(false);
+        }
+        return baseResponse;
+    }
+
+    @Override
+    public BaseResponse changePrice(Product product){
+        BaseResponse baseResponse = new BaseResponse();
+        Integer productPrice = product.getPrice();
+        try{
+            if(productPrice > 0){
+                productRepository.save(product);
+                baseResponse.setStatus(true);
+                baseResponse.setMessage("更改價格成功");
+            }else{
+                baseResponse.setStatus(false);
+                baseResponse.setMessage("更改價格失敗");
+            }
         }catch (Exception e){
             baseResponse.setStatus(false);
-            baseResponse.setMessage("上架失敗");
+            baseResponse.setMessage("更改價格失敗");
         }
-        return null;
+        return baseResponse;
+    }
+    @Override
+    public BaseResponse changeStock(Product product) {
+        BaseResponse baseResponse = new BaseResponse();
+        Integer productStock = product.getStock();
+        try {
+            if (productStock >= 0) {
+                productRepository.save(product);
+                baseResponse.setStatus(true);
+                baseResponse.setMessage("更改庫存數量成功");
+            } else {
+                baseResponse.setStatus(false);
+                baseResponse.setMessage("更改庫存數量失敗");
+            }
+        } catch (Exception e) {
+            baseResponse.setStatus(false);
+            baseResponse.setMessage("更改庫存數量失敗");
+        }
+        return baseResponse;
     }
 }
